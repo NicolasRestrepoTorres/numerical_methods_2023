@@ -7,4 +7,4 @@ b = 1;
 
 integral_f = int(f, a, b); 
 
-fprintf(' %.15f\n', integral_f);
+fprintf(' %.16f\n', integral_f);

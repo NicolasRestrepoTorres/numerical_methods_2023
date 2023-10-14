@@ -7,28 +7,27 @@ exact_val = 0.6080870949063203;
 integral_lower = 0;
 integral_higher = 1;
 
-for i = 1:15
+for i = 2:3
     step_size = 2^-i;
     step_number = get_step_number(integral_lower, integral_higher, step_size);
     
     midpointResult = midpointRule(step_number, step_size, given_funciton, integral_lower);
-    fprintf('Midpoint err %d -\t%.16f\n', i, abs(exact_val - midpointResult));
+    fprintf('Midpoint error %d - \t %.16f\n', i, abs(exact_val - midpointResult));
 
     %simpsonResult = simpsonsSum(step_number, step_size, given_funciton, integral_lower);
-    %fprintf('Simpsons err %d -\t%.16f\n', i, abs(exact_val - simpsonResult));
+    %fprintf('Simpson error %d - \t %.16f\n', i, abs(exact_val - simpsonResult));
 end
 
 
 
 function [midpointRes] = midpointRule(step_number, step_size, given_funciton, integral_lower)
-    midpointRes = 0;
+    total_sum = 0;
 
-    for i = 0:step_number-1
-        mid_point_val = integral_lower + (i + 0.5) * step_size;
-        midpointRes = midpointRes + given_funciton(mid_point_val);
+    for i = 0:step_number
+        point_val = integral_lower + (i + 0.5) * step_size);
     end
     
-    midpointRes = midpointRes * step_size;
+    midpointRes = total_sum;
 end
 
 
