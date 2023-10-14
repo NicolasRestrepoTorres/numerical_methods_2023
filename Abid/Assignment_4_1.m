@@ -1,3 +1,5 @@
+syms x;
+
 f(x) = (exp(x) * sin(x)) / (1 + power(x, 2)) ;
 
 a = 0;  
