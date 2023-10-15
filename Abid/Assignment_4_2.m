@@ -11,6 +11,8 @@ midpointErros = [];
 simpsonErrors = [];
 step_sizes = [];
 
+fprintf('Result: \n\n');
+
 for i = 1:15
     step_size = 2^-i;
     step_sizes = [step_sizes, step_size];
@@ -26,14 +28,18 @@ for i = 1:15
     fprintf('For stepsize %.6f -> midpointRes = %.16f , simpsonRes = %.16f\n',step_size, midpointResult, simpsonResult);
 end
 
+fprintf('\n\nErrors: \n\n')
+for i = 1:15
+    fprintf('For stepsize %.6f -> midpointErros = %.16f , simpsonErrors = %.16f\n',step_sizes(i), midpointErros(i), simpsonErrors(i));
+end 
 
-loglog(step_sizes, midpointErros, '-b');
+loglog(step_sizes, midpointErros, '-b', 'DisplayName', 'Midpoint Errors');
 hold on;
-loglog(step_sizes, simpsonErrors, '-r');
+loglog(step_sizes, simpsonErrors, '-r', 'DisplayName', 'Simpson Errors');
 
 xlabel('Step Size');
 ylabel('Errors');
-
+legend('Location', 'northwest');
 
 function [midpointRes] = midpointRule(step_number, step_size, given_funciton, integral_lower)
     midpointRes = 0;
