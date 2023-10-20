@@ -35,9 +35,10 @@ end
 
 
 function drawGraph(A, B, given_x, given_y, given_equation)
-    y = given_equation(A, B, given_x);
+    custom_x = linspace(0, 2, 100);
+    y = given_equation(A, B, custom_x);
 
-    plot(given_x, y, Color='b')
+    plot(custom_x, y, Color='b')
     hold on 
     scatter(given_x, given_y, 'r', 'filled');
 

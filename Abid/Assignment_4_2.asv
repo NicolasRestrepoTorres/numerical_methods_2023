@@ -35,11 +35,7 @@ end
 
 loglog(step_sizes, midpointErros, '-b', 'DisplayName', 'Midpoint Errors');
 hold on;
-loglog(step_sizes, step_sizes.^2, '--b', 'DisplayName', 'h2')
-hold on;
 loglog(step_sizes, simpsonErrors, '-r', 'DisplayName', 'Simpson Errors');
-hold on;
-loglog(step_sizes, step_sizes.^4, '--r', 'DisplayName', 'h4')
 
 xlabel('Step Size');
 ylabel('Errors');
