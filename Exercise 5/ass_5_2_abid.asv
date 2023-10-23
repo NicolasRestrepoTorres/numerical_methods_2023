@@ -1,3 +1,5 @@
+clc;
+
 error_vectors_norms = [];
 stepsizes = [];
 
@@ -21,14 +23,11 @@ for q=1:4
         k_2 = F_xy(x(i)+0.5*h,y(i)+0.5*h*k_1);
         k_3 = F_xy((x(i)+0.5*h),y(i)+0.5*h*k_2);
         k_4 = F_xy((x(i)+h),y(i)+k_3*h);
-        
         y(i+1) = y(i) + (1/6)*(k_1+2*k_2+2*k_3+k_4)*h; 
         solution_vector = [solution_vector, solution(x(i+1))];
     end
     
-    % euclidean_distance = sqrt(sum((y - solution_vector).^2));
     euclidean_distance = norm(abs(y - solution_vector));
-    
     error_vectors_norms = [error_vectors_norms, euclidean_distance];
 end
 
