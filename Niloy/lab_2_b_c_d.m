@@ -8,7 +8,11 @@ a=0;b=30;Tol=1e-15;max_iter=100;
 p0 = 5; p1 = 25;
 tic
 [pb, maxIterb] = bisection(fun_handle,a,b,Tol,max_iter);
+toc
+tic
 [pn, maxItern] = newton_raphson(fun_handle,dfun_handle,p0,Tol,max_iter);
+toc
+tic
 [ps, maxIters] = secant(fun_handle,p0,p1,Tol,max_iter);
 toc
 approximations = [pb, pn, ps];
@@ -20,3 +24,10 @@ disp(abs(approximations(1)-approximations(3)));
 %real_root = 2 - sqrt(2);
 %abs_error = abs(p - real_root);
 %disp(abs_error);
+
+disp("Error in Newton Raphson, absolute and relative:");
+disp(abs(pn - pb))
+disp(abs(pn - pb)/(pb))
+disp("Error in secant method, absolute and relative:");
+disp(abs(ps - pb))
+disp(abs(ps - pb)/(pb))
