@@ -4,7 +4,7 @@ R = 15;
 p = 0.71;
 fun_handle = @(h) h^3 -3*R*h^2 +4*R^3*p;
 dfun_handle = @(h) 3*h^2-6*R*h;
-a=5;b=25;Tol=1e-15;max_iter=100;
+a=0;b=30;Tol=1e-15;max_iter=100;
 p0 = 5; p1 = 25;
 tic
 [pb, maxIterb] = bisection(fun_handle,a,b,Tol,max_iter);
@@ -15,6 +15,8 @@ approximations = [pb, pn, ps];
 numofiters = [maxIterb, maxItern, maxIters];
 disp(approximations);
 disp(numofiters);
+disp(abs(approximations(1)-approximations(2)));
+disp(abs(approximations(1)-approximations(3)));
 %real_root = 2 - sqrt(2);
 %abs_error = abs(p - real_root);
 %disp(abs_error);
