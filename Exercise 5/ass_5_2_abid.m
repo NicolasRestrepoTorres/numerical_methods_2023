@@ -21,7 +21,7 @@ for q=1:4
     solution = @(t) 3 - (2*exp(-t)) - 0.7*exp(-10*t);
 
     solution_vector = [];
-    solution_vector = [solution_vector, y(1)];
+    solution_vector = [solution_vector, solution(x(1))];
 
     for i=1:(length(x)-1)
         k_1 = F_xy(x(i),y(i));
@@ -50,7 +50,6 @@ for q=1:4
 end
 
 fprintf(' %.16f', error_vectors_norms)
-disp(stepsizes)
 %disp(error_vectors_norms)
 %disp(y)
 
