@@ -49,7 +49,7 @@ for q=1:4
     toc;
 end
 
-%% Graph 2: Errors for each tau against h^{4} in log-log scale
+%% Graphs
 fprintf(' %.16f', error_vectors_norms)
 figure(1);
 loglog(stepsizes, error_vectors_norms, '-or', 'DisplayName', 'Error');
@@ -60,7 +60,7 @@ ylabel('Errors');
 legend('Location', 'northwest');
 hold off;
 
-%% Graph 2: Analytical solution vs computed solution
+
 figure(2);
 hold on;
 disp(stepsizes);
